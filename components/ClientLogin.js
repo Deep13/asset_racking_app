@@ -195,9 +195,10 @@ const ClientLogin = ({ navigation }) => {
                         style={{ maxHeight: 100, width: '100%' }}
                     />
                     <Text style={{ color: '#000', textAlign: 'center', fontSize: width / 13, fontWeight: 'bold', paddingTop: 10 }}>Asset Management</Text>
+                    <Text style={{ color: '#000', textAlign: 'center', fontWeight: 'bold', paddingTop: 10 }}>Aperia 1</Text>
                     <View style={{ backgroundColor: '#edeff1', borderRadius: 50, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, margin: 20 }}>
                         <Icons name="user-alt" size={width / 20} color={'#91919a'} />
-                        <Text style={{ color: '#91919a', fontSize: width / 20, fontWeight: 'bold', marginHorizontal: 10 }}>|</Text>
+                        <Text style={{ color: '#91919a', fontSize: width / 20, fontWeight: '500', marginHorizontal: 10 }}>|</Text>
                         <TextInput
                             placeholder="Username"
                             placeholderTextColor="#91919a"
