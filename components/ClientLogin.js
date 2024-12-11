@@ -124,53 +124,53 @@ const ClientLogin = ({ navigation }) => {
         var pwd = await AsyncStorage.getItem('password');
         // var ipport = await AsyncStorage.getItem('ip');
         if (user && pwd) {
-            fetch('https://demo.vellas.net:99/sap_api/api/values/GetAssetlist?token=743F1F69-168A-489E-BC19-5ABF98E8000B&location=')
-                .then(response => { return response.text() })
-                .then(datas => {
-                    var domain = getDomain();
-                    console.log(domain + '/assettracking/webapp/php/index.php');
-                    const data = new URLSearchParams();
-                    data.append('method', 'loginCheck');
-                    data.append('data', JSON.stringify({ username: user, pwd: pwd }));
-                    fetch(domain + '/assettracking/webapp/php/index.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: data.toString()
-                    })
-                        .then(response => response.text())
-                        .then(data => {
-                            console.log(typeof (data));
-                            var resp = typeof (data) == 'string' ? JSON.parse(data) : data;
-                            setloading(false);
-                            if (resp) {
-                                if (resp[0] == 'Login unsuccesfull' || resp[0] == 'Login failed') {
-                                    Alert.alert(resp[0]);
-                                    AsyncStorage.removeItem('username');
-                                    AsyncStorage.removeItem('password');
-                                }
-                                else {
-                                    AsyncStorage.setItem('username', user);
-                                    AsyncStorage.setItem('password', pwd);
-                                    setUser({ username: user, pwd: pwd })
-                                    navigation.reset({
-                                        index: 0,
-                                        routes: [{ name: 'LoggedInContainer' }],
-                                    });
-                                }
-                            }
+            // fetch('https://demo.vellas.net:99/sap_api/api/values/GetAssetlist?token=743F1F69-168A-489E-BC19-5ABF98E8000B&location=')
+            //     .then(response => { return response.text() })
+            //     .then(datas => {
+
+            //     })
+            var domain = getDomain();
+            console.log(domain + '/assettracking/webapp/php/index.php');
+            const data = new URLSearchParams();
+            data.append('method', 'loginCheck');
+            data.append('data', JSON.stringify({ username: user, pwd: pwd }));
+            fetch(domain + '/assettracking/webapp/php/index.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: data.toString()
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(typeof (data));
+                    var resp = typeof (data) == 'string' ? JSON.parse(data) : data;
+                    setloading(false);
+                    if (resp) {
+                        if (resp[0] == 'Login unsuccesfull' || resp[0] == 'Login failed') {
+                            Alert.alert(resp[0]);
+                            AsyncStorage.removeItem('username');
+                            AsyncStorage.removeItem('password');
+                        }
+                        else {
+                            AsyncStorage.setItem('username', user);
+                            AsyncStorage.setItem('password', pwd);
+                            setUser({ username: user, pwd: pwd })
+                            navigation.reset({
+                                index: 0,
+                                routes: [{ name: 'LoggedInContainer' }],
+                            });
+                        }
+                    }
 
 
-                        })
-                        .catch(error => {
-                            alert('Error:', error);
-                            console.log('Error:', error);
-                            setloading(false);
-
-                        });
                 })
+                .catch(error => {
+                    alert('Error:', error);
+                    console.log('Error:', error);
+                    setloading(false);
 
+                });
         }
     }
 

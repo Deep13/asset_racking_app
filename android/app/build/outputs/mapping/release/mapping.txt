@@ -3,8 +3,8 @@
 # min_api: 21
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.0"}
-# pg_map_id: 2312435
-# pg_map_hash: SHA-256 231243517467de2454dd08abee845507b66a256c37e0b806aa3fd4d637c62682
+# pg_map_id: ed5fee0
+# pg_map_hash: SHA-256 ed5fee0e858a2e1ea57682432675e8782922043adf906ec51548d9ccacedeb3a
 android.support.v4.media.MediaBrowserCompat$CustomActionResultReceiver -> android.support.v4.media.MediaBrowserCompat$CustomActionResultReceiver:
     void onReceiveResult(int,android.os.Bundle) -> d
 android.support.v4.media.MediaBrowserCompat$ItemReceiver -> android.support.v4.media.MediaBrowserCompat$ItemReceiver:
@@ -47707,6 +47707,7 @@ org.reactnative.camera.CameraViewManager$Events -> org.reactnative.camera.Camera
     org.reactnative.camera.CameraViewManager$Events EVENT_ON_RECORDING_END -> o
     org.reactnative.camera.CameraViewManager$Events EVENT_ON_RECORDING_START -> n
     org.reactnative.camera.CameraViewManager$Events EVENT_ON_TOUCH -> p
+    org.reactnative.camera.CameraViewManager$Events[] $values() -> a
 org.reactnative.camera.R$id -> org.reactnative.camera.a:
     int texture_view -> a
 org.reactnative.camera.R$layout -> org.reactnative.camera.b:
